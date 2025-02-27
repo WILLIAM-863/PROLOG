@@ -7,3 +7,9 @@ conexion(calgary,edmonton,4).
 conexion(calgary,regina,14).
 conexion(regina,saskatoon,7).
 conexion(regina,winnipeg,4).
+
+ruta(X,Y):-conexion(X,Y,_).
+rutacosto(X,Y,Z):-conexion(X,Y,Z).
+tienearistas(K):-conexion(K,_,_).
+costoviaje(Inicio,Destino,Intermedio,Costo):-
+conexion(Inicio,Intermedio,C1),conexion(Intermedio,Destino,C2), Costo is C1+C2.
